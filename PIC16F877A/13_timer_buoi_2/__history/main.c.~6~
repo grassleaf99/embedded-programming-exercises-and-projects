@@ -1,0 +1,27 @@
+#include <main.h>
+long count = 0;
+void main()
+{
+   set_tris_d(0x00);
+   setup_timer_1(T1_INTERNAL | T1_DIV_BY_8);    // chon clock noi = 20M/4 = 5MHz va che do chia cho 8 -> moi lan tang 1 bit se co tan so 5MHz/8
+   set_timer1(64911);                           // cai dat dem tu 64911 -> 65536 (2 mu 16)   
+   enable_interrupts(INT_TIMER1);
+   enable_interrupts(GLOBAL);
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}
+
+#INT_TIMER1
+void chuyenled()
+{
+     set_timer1(64286);
+     count++;
+     if(count == 1000)
+     {
+         count = 0;
+         output_toggle(PIN_D7);
+     }
+}

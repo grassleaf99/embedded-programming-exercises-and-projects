@@ -1,0 +1,45 @@
+#include <main.h>
+#INT_EXT
+void nutNhan(void)
+{
+   x++;
+   if(x > 10)
+   x = 0;
+}
+void hienSoTangDan(long sotang)
+{  
+         output_low(PIN_A4);
+         output_high(PIN_E0);
+         output_high(PIN_E1);
+         output_high(PIN_E2);
+         output_d(maled7[sotang / 1000]);
+         delay_ms(5);
+         output_low(PIN_E0);
+         output_high(PIN_A4);
+         output_high(PIN_E1);
+         output_high(PIN_E2);
+         output_d(maled7[(sotang % 1000) / 100]);
+         delay_ms(5);
+         output_low(PIN_E1);
+         output_high(PIN_E0);
+         output_high(PIN_A4);
+         output_high(PIN_E2);
+         output_d(maled7[((sotang % 1000) % 100) / 10]);
+         delay_ms(5);
+         output_low(PIN_E2);
+         output_high(PIN_E0);
+         output_high(PIN_E1);
+         output_high(PIN_A4);
+         output_d(maled7[((sotang % 1000) % 100) % 10]);
+         delay_ms(5);
+}
+void main()
+{
+   enable_interrupts(INT_EXT);
+   enable_interrupts(GLOBAL);
+   while(TRUE)
+   {  
+      
+   }
+
+}

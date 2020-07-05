@@ -1,0 +1,73 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.025
+Compiler=PCM
+CCSVersion=5.025
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\ADMIN\Desktop\Hoc_PIC\14_btvn_quetled_demh_=timer\main]
+Type=4
+[mru-list]
+1=main.c
+
+[ProjectLog]
+Days=5
+D1=01-07-2019
+D1_L=10
+D1_L1=[55045]Project Opened.
+D1_L2=[55205]Started Editing.
+D1_L3=[56329]Stopped Editing.
+D1_L4=[56402]Started Editing.
+D1_L5=[57843]Stopped Editing.
+TotalEdit=55
+TotalDebug=0
+D1_E=42
+D1_D=0
+D1_L6=[57843]Project Closed.
+D1_L7=[57861]Project Opened.
+D1_L8=[57903]Started Editing.
+D1_L9=[58092]Stopped Editing.
+D1_L10=[58092]Project Closed.
+D2=04-07-2019
+D2_L=4
+D2_L1=[53244]Project Opened.
+D2_L2=[53282]Started Editing.
+D2_L3=[53639]Stopped Editing.
+D2_E=6
+D2_D=0
+D2_L4=[53639]Project Closed.
+D3=07-07-2019
+D3_L=8
+D3_L1=[73670]Project Opened.
+D3_L2=[73687]Project Closed.
+D3_L3=[73789]Project Opened.
+D3_L4=[75881]Started Editing.
+D3_L5=[76286]Stopped Editing.
+D3_L6=[76331]Started Editing.
+D3_L7=[76891]Stopped Editing.
+D3_E=7
+D3_D=0
+D3_L8=[80569]Project Closed.
+D4=18-07-2019
+D4_L=2
+D4_L1=[81444]Project Opened.
+D4_L2=[81458]Project Closed.
+D5=26-07-2019
+D5_L=2
+D5_L1=[41478]Project Opened.
+D5_L2=[41512]Project Closed.
+
+[Opened Files]
+1=main.c
+2=
+3=..\12_timer\main.c
+4=
+5=
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

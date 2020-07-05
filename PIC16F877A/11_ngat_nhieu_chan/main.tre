@@ -1,0 +1,18 @@
+ÀÄmain
+   ÃÄMAIN  0/55  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÀÄhienSoTangDan  0/222  Ram=5
+   ³     ÃÄ@DIVS1616  0/62  Ram=6
+   ³     ÃÄ@delay_ms1  0/20  Ram=1
+   ³     ÃÄ@DIVS1616  0/62  Ram=6
+   ³     ÃÄ@DIVS1616  0/62  Ram=6
+   ³     ÃÄ@delay_ms1  0/20  Ram=1
+   ³     ÃÄ@DIVS1616  0/62  Ram=6
+   ³     ÃÄ@DIVS1616  0/62  Ram=6
+   ³     ÃÄ@DIVS1616  0/62  Ram=6
+   ³     ÃÄ@delay_ms1  0/20  Ram=1
+   ³     ÃÄ@DIVS1616  0/62  Ram=6
+   ³     ÃÄ@DIVS1616  0/62  Ram=6
+   ³     ÃÄ@DIVS1616  0/62  Ram=6
+   ³     ÀÄ@delay_ms1  0/20  Ram=1
+   ÀÄtaGia  0/42  Ram=1

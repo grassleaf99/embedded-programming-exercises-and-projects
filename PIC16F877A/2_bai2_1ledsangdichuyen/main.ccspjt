@@ -1,0 +1,87 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.025
+Compiler=PCM
+CCSVersion=5.025
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\ADMIN\Desktop\Hoc_PIC\bai2_ledsangdichuyen\main]
+Type=4
+[mru-list]
+1=main.c
+
+[ProjectLog]
+Days=6
+D1=10-05-2019
+D1_L=18
+D1_L1=[75567]Project Opened.
+D1_L2=[75572]Started Editing.
+D1_L3=[79893]Stopped Editing.
+D1_L4=[79909]Started Editing.
+D1_L5=[81235]Stopped Editing.
+D1_L6=[81452]Started Editing.
+D1_L7=[81973]Stopped Editing.
+D1_L8=[82252]Started Editing.
+D1_L9=[82643]Stopped Editing.
+D1_L10=[82644]Started Editing.
+D1_L11=[84172]Stopped Editing.
+D1_L12=[84216]Started Editing.
+D1_L13=[84547]Stopped Editing.
+D1_L14=[84575]Started Editing.
+D1_L15=[85207]Stopped Editing.
+D1_L16=[85253]Started Editing.
+D1_L17=[85341]Stopped Editing.
+TotalEdit=125
+TotalDebug=0
+D1_E=118
+D1_D=0
+D1_L18=[85341]Project Closed.
+D2=11-05-2019
+D2_L=10
+D2_L1=[34260]Project Opened.
+D2_L2=[34302]Started Editing.
+D2_L3=[34899]Stopped Editing.
+D2_E=5
+D2_D=0
+D2_L4=[35392]Project Closed.
+D2_L5=[35417]Project Opened.
+D2_L6=[35479]Project Closed.
+D2_L7=[73159]Project Opened.
+D2_L8=[73197]Project Closed.
+D2_L9=[74046]Project Opened.
+D2_L10=[74380]Project Closed.
+D3=12-05-2019
+D3_L=4
+D3_L1=[81437]Project Opened.
+D3_L2=[81487]Started Editing.
+D3_L3=[81606]Stopped Editing.
+D3_E=2
+D3_D=0
+D3_L4=[81606]Project Closed.
+D4=14-05-2019
+D4_L=4
+D4_L1=[75819]Project Opened.
+D4_L2=[75947]Project Closed.
+D4_L3=[75980]Project Opened.
+D4_L4=[76006]Project Closed.
+D5=17-05-2019
+D5_L=2
+D5_L1=[77561]Project Opened.
+D5_L2=[77570]Project Closed.
+D6=29-05-2019
+D6_L=2
+D6_L1=[39975]Project Opened.
+D6_L2=[40058]Project Closed.
+
+[Opened Files]
+1=main.c
+2=
+3=
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

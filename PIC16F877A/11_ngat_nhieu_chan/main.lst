@@ -1,0 +1,554 @@
+CCS PCM C Compiler, Version 5.025, 9105               27-May-19 17:29
+
+               Filename:   C:\Users\ADMIN\Desktop\Hoc_PIC\ngat_nhieu_chan\main.lst
+
+               ROM used:   448 words (5%)
+                           Largest free fragment is 2048
+               RAM used:   24 (7%) at main() level
+                           35 (10%) worst case
+               Stack used: 2 locations (1 in main + 1 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  01
+0001:  MOVWF  0A
+0002:  GOTO   189
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BCF    03.7
+0016:  BCF    03.5
+0017:  BTFSS  0B.3
+0018:  GOTO   01B
+0019:  BTFSC  0B.0
+001A:  GOTO   02C
+001B:  MOVF   22,W
+001C:  MOVWF  04
+001D:  MOVF   23,W
+001E:  MOVWF  77
+001F:  MOVF   24,W
+0020:  MOVWF  78
+0021:  MOVF   25,W
+0022:  MOVWF  79
+0023:  MOVF   26,W
+0024:  MOVWF  7A
+0025:  MOVF   20,W
+0026:  MOVWF  0A
+0027:  SWAPF  21,W
+0028:  MOVWF  03
+0029:  SWAPF  7F,F
+002A:  SWAPF  7F,W
+002B:  RETFIE
+002C:  BCF    0A.3
+002D:  BCF    0A.4
+002E:  GOTO   02F
+.................... #include <main.h> 
+.................... #include <16F877A.h> 
+.................... //////////// Standard Header file for the PIC16F877A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F877A 
+*
+0059:  MOVF   38,W
+005A:  XORWF  3A,W
+005B:  ANDLW  80
+005C:  MOVWF  3C
+005D:  BTFSS  38.7
+005E:  GOTO   064
+005F:  COMF   37,F
+0060:  COMF   38,F
+0061:  INCF   37,F
+0062:  BTFSC  03.2
+0063:  INCF   38,F
+0064:  BTFSS  3A.7
+0065:  GOTO   06B
+0066:  COMF   39,F
+0067:  COMF   3A,F
+0068:  INCF   39,F
+0069:  BTFSC  03.2
+006A:  INCF   3A,F
+006B:  CLRF   78
+006C:  CLRF   79
+006D:  CLRF   77
+006E:  CLRF   7A
+006F:  MOVF   3A,W
+0070:  BTFSS  03.2
+0071:  GOTO   075
+0072:  MOVF   39,W
+0073:  BTFSC  03.2
+0074:  GOTO   08F
+0075:  MOVLW  10
+0076:  MOVWF  3B
+0077:  BCF    03.0
+0078:  RLF    37,F
+0079:  RLF    38,F
+007A:  RLF    77,F
+007B:  RLF    7A,F
+007C:  MOVF   3A,W
+007D:  SUBWF  7A,W
+007E:  BTFSS  03.2
+007F:  GOTO   082
+0080:  MOVF   39,W
+0081:  SUBWF  77,W
+0082:  BTFSS  03.0
+0083:  GOTO   08B
+0084:  MOVF   39,W
+0085:  SUBWF  77,F
+0086:  BTFSS  03.0
+0087:  DECF   7A,F
+0088:  MOVF   3A,W
+0089:  SUBWF  7A,F
+008A:  BSF    03.0
+008B:  RLF    78,F
+008C:  RLF    79,F
+008D:  DECFSZ 3B,F
+008E:  GOTO   077
+008F:  BTFSS  3C.7
+0090:  GOTO   096
+0091:  COMF   78,F
+0092:  COMF   79,F
+0093:  INCF   78,F
+0094:  BTFSC  03.2
+0095:  INCF   79,F
+0096:  RETURN
+....................  
+.................... #list 
+....................  
+.................... #device ADC=16 
+....................  
+.................... #FUSES NOWDT                 	//No Watch Dog Timer 
+.................... #FUSES NOBROWNOUT            	//No brownout reset 
+.................... #FUSES NOLVP                 	//No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+....................  
+.................... #use delay(crystal=20000000) 
+0097:  MOVLW  35
+0098:  MOVWF  04
+0099:  BCF    03.7
+009A:  MOVF   00,W
+009B:  BTFSC  03.2
+009C:  GOTO   0AA
+009D:  MOVLW  06
+009E:  MOVWF  78
+009F:  CLRF   77
+00A0:  DECFSZ 77,F
+00A1:  GOTO   0A0
+00A2:  DECFSZ 78,F
+00A3:  GOTO   09F
+00A4:  MOVLW  7B
+00A5:  MOVWF  77
+00A6:  DECFSZ 77,F
+00A7:  GOTO   0A6
+00A8:  DECFSZ 00,F
+00A9:  GOTO   09D
+00AA:  RETURN
+....................  
+....................  
+.................... signed long g_x = 0; 
+.................... int8 maled7[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90}; 
+*
+0196:  MOVLW  C0
+0197:  BCF    03.5
+0198:  MOVWF  29
+0199:  MOVLW  F9
+019A:  MOVWF  2A
+019B:  MOVLW  A4
+019C:  MOVWF  2B
+019D:  MOVLW  B0
+019E:  MOVWF  2C
+019F:  MOVLW  99
+01A0:  MOVWF  2D
+01A1:  MOVLW  92
+01A2:  MOVWF  2E
+01A3:  MOVLW  82
+01A4:  MOVWF  2F
+01A5:  MOVLW  F8
+01A6:  MOVWF  30
+01A7:  MOVLW  80
+01A8:  MOVWF  31
+01A9:  MOVLW  90
+01AA:  MOVWF  32
+.................... // RB la ngat lien quan den cac thay doi cac chan B4 -> B7 
+.................... // sau dong 6 phai la ham ngat, câu lênh cua dong 6 chi duoc ghi 1 lan, nêu ghi quá 1 lân se gây ra xung dôt (tuc la sai) 
+.................... #INT_RB      // ngat RB - ngat lien quan den cac thay doi chan B4 -> B7 
+.................... void taGia() // khi ân nút nhân nôi voi chan B4 hay chan B5 thì dó là su kien ngat, khi dó trình phuc vu ngat (chuong trinh ngat) tu dông thuc hien  
+.................... { 
+....................    if(input(PIN_B4) == 0)   // nut nhan nói vói chân B4 duoc án 
+*
+002F:  BSF    03.5
+0030:  BSF    06.4
+0031:  BCF    03.5
+0032:  BTFSC  06.4
+0033:  GOTO   046
+....................    { 
+....................       g_x++; 
+0034:  INCF   27,F
+0035:  BTFSC  03.2
+0036:  INCF   28,F
+....................       if(g_x > 9999) 
+0037:  BTFSC  28.7
+0038:  GOTO   046
+0039:  MOVF   28,W
+003A:  SUBLW  26
+003B:  BTFSC  03.0
+003C:  GOTO   046
+003D:  XORLW  FF
+003E:  BTFSS  03.2
+003F:  GOTO   044
+0040:  MOVF   27,W
+0041:  SUBLW  0F
+0042:  BTFSC  03.0
+0043:  GOTO   046
+....................       g_x = 0; 
+0044:  CLRF   28
+0045:  CLRF   27
+....................    } 
+....................    if(input(PIN_B5) == 0)   // nut nhan nói vói chân B5 duoc án 
+0046:  BSF    03.5
+0047:  BSF    06.5
+0048:  BCF    03.5
+0049:  BTFSC  06.5
+004A:  GOTO   055
+....................    { 
+....................       g_x--; 
+004B:  MOVF   27,W
+004C:  BTFSC  03.2
+004D:  DECF   28,F
+004E:  DECF   27,F
+....................       if(g_x < 0) 
+004F:  BTFSS  28.7
+0050:  GOTO   055
+....................       g_x = 9999; 
+0051:  MOVLW  27
+0052:  MOVWF  28
+0053:  MOVLW  0F
+0054:  MOVWF  27
+....................    } 
+0055:  BCF    0B.0
+0056:  BCF    0A.3
+0057:  BCF    0A.4
+0058:  GOTO   01B
+.................... } 
+.................... void hienSoTangDan(signed long sotang) 
+.................... {   
+....................          output_low(PIN_A4); 
+*
+00AB:  BSF    03.5
+00AC:  BCF    05.4
+00AD:  BCF    03.5
+00AE:  BCF    05.4
+....................          output_high(PIN_E0); 
+00AF:  BSF    03.5
+00B0:  BCF    09.0
+00B1:  BCF    03.5
+00B2:  BSF    09.0
+....................          output_high(PIN_E1); 
+00B3:  BSF    03.5
+00B4:  BCF    09.1
+00B5:  BCF    03.5
+00B6:  BSF    09.1
+....................          output_high(PIN_E2); 
+00B7:  BSF    03.5
+00B8:  BCF    09.2
+00B9:  BCF    03.5
+00BA:  BSF    09.2
+....................          output_d(maled7[sotang / 1000]); 
+00BB:  MOVF   34,W
+00BC:  MOVWF  38
+00BD:  MOVF   33,W
+00BE:  MOVWF  37
+00BF:  MOVLW  03
+00C0:  MOVWF  3A
+00C1:  MOVLW  E8
+00C2:  MOVWF  39
+00C3:  CALL   059
+00C4:  MOVLW  29
+00C5:  ADDWF  78,W
+00C6:  MOVWF  04
+00C7:  BCF    03.7
+00C8:  BTFSC  79.0
+00C9:  BSF    03.7
+00CA:  MOVF   00,W
+00CB:  MOVWF  37
+00CC:  BSF    03.5
+00CD:  CLRF   08
+00CE:  BCF    03.5
+00CF:  MOVF   37,W
+00D0:  MOVWF  08
+....................          delay_ms(5); 
+00D1:  MOVLW  05
+00D2:  MOVWF  35
+00D3:  CALL   097
+....................          output_low(PIN_E0); 
+00D4:  BSF    03.5
+00D5:  BCF    09.0
+00D6:  BCF    03.5
+00D7:  BCF    09.0
+....................          output_high(PIN_A4); 
+00D8:  BSF    03.5
+00D9:  BCF    05.4
+00DA:  BCF    03.5
+00DB:  BSF    05.4
+....................          output_high(PIN_E1); 
+00DC:  BSF    03.5
+00DD:  BCF    09.1
+00DE:  BCF    03.5
+00DF:  BSF    09.1
+....................          output_high(PIN_E2); 
+00E0:  BSF    03.5
+00E1:  BCF    09.2
+00E2:  BCF    03.5
+00E3:  BSF    09.2
+....................          output_d(maled7[(sotang % 1000) / 100]); 
+00E4:  MOVF   34,W
+00E5:  MOVWF  38
+00E6:  MOVF   33,W
+00E7:  MOVWF  37
+00E8:  MOVLW  03
+00E9:  MOVWF  3A
+00EA:  MOVLW  E8
+00EB:  MOVWF  39
+00EC:  CALL   059
+00ED:  MOVF   77,W
+00EE:  MOVWF  35
+00EF:  MOVF   7A,W
+00F0:  MOVWF  36
+00F1:  MOVWF  38
+00F2:  MOVF   77,W
+00F3:  MOVWF  37
+00F4:  CLRF   3A
+00F5:  MOVLW  64
+00F6:  MOVWF  39
+00F7:  CALL   059
+00F8:  MOVLW  29
+00F9:  ADDWF  78,W
+00FA:  MOVWF  04
+00FB:  BCF    03.7
+00FC:  BTFSC  79.0
+00FD:  BSF    03.7
+00FE:  MOVF   00,W
+00FF:  MOVWF  37
+0100:  BSF    03.5
+0101:  CLRF   08
+0102:  BCF    03.5
+0103:  MOVF   37,W
+0104:  MOVWF  08
+....................          delay_ms(5); 
+0105:  MOVLW  05
+0106:  MOVWF  35
+0107:  CALL   097
+....................          output_low(PIN_E1); 
+0108:  BSF    03.5
+0109:  BCF    09.1
+010A:  BCF    03.5
+010B:  BCF    09.1
+....................          output_high(PIN_E0); 
+010C:  BSF    03.5
+010D:  BCF    09.0
+010E:  BCF    03.5
+010F:  BSF    09.0
+....................          output_high(PIN_A4); 
+0110:  BSF    03.5
+0111:  BCF    05.4
+0112:  BCF    03.5
+0113:  BSF    05.4
+....................          output_high(PIN_E2); 
+0114:  BSF    03.5
+0115:  BCF    09.2
+0116:  BCF    03.5
+0117:  BSF    09.2
+....................          output_d(maled7[((sotang % 1000) % 100) / 10]); 
+0118:  MOVF   34,W
+0119:  MOVWF  38
+011A:  MOVF   33,W
+011B:  MOVWF  37
+011C:  MOVLW  03
+011D:  MOVWF  3A
+011E:  MOVLW  E8
+011F:  MOVWF  39
+0120:  CALL   059
+0121:  MOVF   77,W
+0122:  MOVWF  35
+0123:  MOVF   7A,W
+0124:  MOVWF  36
+0125:  MOVWF  38
+0126:  MOVF   77,W
+0127:  MOVWF  37
+0128:  CLRF   3A
+0129:  MOVLW  64
+012A:  MOVWF  39
+012B:  CALL   059
+012C:  MOVF   77,W
+012D:  MOVWF  35
+012E:  MOVF   7A,W
+012F:  MOVWF  36
+0130:  MOVWF  38
+0131:  MOVF   77,W
+0132:  MOVWF  37
+0133:  CLRF   3A
+0134:  MOVLW  0A
+0135:  MOVWF  39
+0136:  CALL   059
+0137:  MOVLW  29
+0138:  ADDWF  78,W
+0139:  MOVWF  04
+013A:  BCF    03.7
+013B:  BTFSC  79.0
+013C:  BSF    03.7
+013D:  MOVF   00,W
+013E:  MOVWF  37
+013F:  BSF    03.5
+0140:  CLRF   08
+0141:  BCF    03.5
+0142:  MOVF   37,W
+0143:  MOVWF  08
+....................          delay_ms(5); 
+0144:  MOVLW  05
+0145:  MOVWF  35
+0146:  CALL   097
+....................          output_low(PIN_E2); 
+0147:  BSF    03.5
+0148:  BCF    09.2
+0149:  BCF    03.5
+014A:  BCF    09.2
+....................          output_high(PIN_E0); 
+014B:  BSF    03.5
+014C:  BCF    09.0
+014D:  BCF    03.5
+014E:  BSF    09.0
+....................          output_high(PIN_E1); 
+014F:  BSF    03.5
+0150:  BCF    09.1
+0151:  BCF    03.5
+0152:  BSF    09.1
+....................          output_high(PIN_A4); 
+0153:  BSF    03.5
+0154:  BCF    05.4
+0155:  BCF    03.5
+0156:  BSF    05.4
+....................          output_d(maled7[((sotang % 1000) % 100) % 10]); 
+0157:  MOVF   34,W
+0158:  MOVWF  38
+0159:  MOVF   33,W
+015A:  MOVWF  37
+015B:  MOVLW  03
+015C:  MOVWF  3A
+015D:  MOVLW  E8
+015E:  MOVWF  39
+015F:  CALL   059
+0160:  MOVF   77,W
+0161:  MOVWF  35
+0162:  MOVF   7A,W
+0163:  MOVWF  36
+0164:  MOVWF  38
+0165:  MOVF   77,W
+0166:  MOVWF  37
+0167:  CLRF   3A
+0168:  MOVLW  64
+0169:  MOVWF  39
+016A:  CALL   059
+016B:  MOVF   77,W
+016C:  MOVWF  35
+016D:  MOVF   7A,W
+016E:  MOVWF  36
+016F:  MOVWF  38
+0170:  MOVF   77,W
+0171:  MOVWF  37
+0172:  CLRF   3A
+0173:  MOVLW  0A
+0174:  MOVWF  39
+0175:  CALL   059
+0176:  MOVLW  29
+0177:  ADDWF  77,W
+0178:  MOVWF  04
+0179:  BCF    03.7
+017A:  BTFSC  7A.0
+017B:  BSF    03.7
+017C:  MOVF   00,W
+017D:  MOVWF  37
+017E:  BSF    03.5
+017F:  CLRF   08
+0180:  BCF    03.5
+0181:  MOVF   37,W
+0182:  MOVWF  08
+....................          delay_ms(5); 
+0183:  MOVLW  05
+0184:  MOVWF  35
+0185:  CALL   097
+0186:  BCF    0A.3
+0187:  BCF    0A.4
+0188:  GOTO   1BE (RETURN)
+.................... } 
+.................... void main() 
+0189:  MOVF   03,W
+018A:  ANDLW  1F
+018B:  MOVWF  03
+018C:  CLRF   28
+018D:  CLRF   27
+018E:  BSF    03.5
+018F:  BSF    1F.0
+0190:  BSF    1F.1
+0191:  BSF    1F.2
+0192:  BCF    1F.3
+0193:  MOVLW  07
+0194:  MOVWF  1C
+0195:  BCF    03.7
+.................... { 
+....................    set_tris_a(0xEF); // dat chan A4 làm output de cap nguon cho led 7 doan 
+*
+01AB:  MOVLW  EF
+01AC:  BSF    03.5
+01AD:  MOVWF  05
+....................    set_tris_e(0xF8); // dat chan E0, E1, E2 làm output de cap nguon cho led 7 doan 
+01AE:  BCF    09.0
+01AF:  BCF    09.1
+01B0:  BCF    09.2
+....................    set_tris_d(0x00); // dat tat ca cac chan cong D la output de lam sang den led 7 doan 
+01B1:  MOVLW  00
+01B2:  MOVWF  08
+....................    set_tris_b(0x30); // dat chan B4 va B5 la input de lay du lieu nut nhan. nhan nut noi voi B4 thi tang so, nhan nut noi voi B5 thi giam so 
+01B3:  MOVLW  30
+01B4:  MOVWF  06
+....................    enable_interrupts(INT_RB); // enable kieu ngat RB - ngat lien quan den cac thay doi chan B4 -> B7 
+01B5:  BCF    03.5
+01B6:  BSF    0B.3
+....................    enable_interrupts(GLOBAL); // enable ngat toan cuc 
+01B7:  MOVLW  C0
+01B8:  IORWF  0B,F
+....................    while(TRUE) 
+....................    {   
+....................       hienSoTangDan(g_x);  
+01B9:  MOVF   28,W
+01BA:  MOVWF  34
+01BB:  MOVF   27,W
+01BC:  MOVWF  33
+01BD:  GOTO   0AB
+01BE:  GOTO   1B9
+....................    } 
+....................  
+.................... } 
+01BF:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F32   HS NOWDT PUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

@@ -1,0 +1,28 @@
+#include <main.h>
+
+void main()
+{  //kit PIC cua linh kien duc long co 4 den led 7 doan (anot chung -> voi viec xuat thi 0 la sang, 1 la toi) gan vao cac chan A0, A1, E0, E2
+   //code nay thao tac voi led 7 doan có chan nguon dc gan vao chan E2 va cac led cua led 7 doan này gan vao 7 chan cong D
+   set_tris_e(0xFB);// 1111 1011  cong E: chan E2 lam output
+   set_tris_d(0x00);// tat ca chan cong D lam output hien thi do sang den led voi
+                    // a la D0, b la D1, c la D2, d la D3, e la D4, f la D5, g la D6, dp la D7
+   int8 maled7[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+                     // so 0, so 1, so 2, so 3, so 4, so 5, so 6, so 7, so 8, so 9
+   while(TRUE)
+   {
+      output_low(PIN_E2); // cho chan E2 muc 0 -> cap nguon cho led 7 doan chung anot
+   // output_d(0xF9);     // xuat so 1 ra led 7 doan dc noi voi chan E2 vì 0xF9 = 1111 1001
+   //                                                                                   ||
+   //                                                                                   vv
+   //                                                                                   cb
+      for(int i = 0; i < 10; i++)
+      {
+         output_d(maled7[i]);
+         delay_ms(1000);
+      }
+      //TODO: User Code
+      //code khi nap va chay tren kit thi se hien thi den led 7 doan chan A1 va E2 
+      //(co li do gi do khien cho led 7 doan chan A1 sang ma a Tuyen ko noi ro)
+   }
+
+}

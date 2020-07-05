@@ -1,0 +1,59 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.025
+Compiler=PCM
+CCSVersion=5.025
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\ADMIN\Desktop\Hoc_PIC\ngat\main]
+Type=4
+[mru-list]
+1=main.c
+
+[ProjectLog]
+Days=3
+D1=26-05-2019
+D1_L=4
+D1_L1=[76014]Project Opened.
+D1_L2=[76089]Started Editing.
+D1_L3=[77729]Stopped Editing.
+TotalEdit=47
+TotalDebug=0
+D1_E=28
+D1_D=0
+D1_L4=[77729]Project Closed.
+D2=27-05-2019
+D2_L=14
+D2_L1=[59779]Project Opened.
+D2_L2=[59890]Started Editing.
+D2_L3=[60675]Stopped Editing.
+D2_L4=[60685]Started Editing.
+D2_L5=[61099]Stopped Editing.
+D2_L6=[61336]Started Editing.
+D2_L7=[61770]Stopped Editing.
+D2_E=19
+D2_D=0
+D2_L8=[61770]Project Closed.
+D2_L9=[63019]Project Opened.
+D2_L10=[63026]Started Editing.
+D2_L11=[63037]Stopped Editing.
+D2_L12=[63037]Project Closed.
+D2_L13=[63051]Project Opened.
+D2_L14=[63072]Project Closed.
+D3=30-05-2019
+D3_L=2
+D3_L1=[73709]Project Opened.
+D3_L2=[73805]Project Closed.
+
+[Opened Files]
+1=main.c
+2=
+3=
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

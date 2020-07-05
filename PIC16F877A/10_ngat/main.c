@@ -1,0 +1,53 @@
+#include <main.h>
+signed long g_x = 0;
+int8 maled7[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+// chan B0/INT la chan co ngat nen nut nhan duoc noi voi B0
+// sau dong 6 phai la ham ngat
+#INT_EXT // EXT là ngat liên quan dên chân B0, và câu lênh cua dòng 6 này chi duoc ghi 1 lân, nêu ghi nhiêu hon se gây ra xung dôt (tuc la bi sai)
+void tang() // vì dây là ngat liên quan den chân B0 nên viêc nhan nut noi voi chan B0 là su kiên ngat, khi do trình phuc vu ngat (chuong trình ngat) tu dông thuc hiên ->  g_x se tang
+{
+   g_x++;
+   if(g_x > 9)
+   g_x = 0;
+}
+void hienSoTangDan(signed long sotang)
+{  
+         output_low(PIN_A4);
+         output_high(PIN_E0);
+         output_high(PIN_E1);
+         output_high(PIN_E2);
+         output_d(maled7[sotang / 1000]);
+         delay_ms(5);
+         output_low(PIN_E0);
+         output_high(PIN_A4);
+         output_high(PIN_E1);
+         output_high(PIN_E2);
+         output_d(maled7[(sotang % 1000) / 100]);
+         delay_ms(5);
+         output_low(PIN_E1);
+         output_high(PIN_E0);
+         output_high(PIN_A4);
+         output_high(PIN_E2);
+         output_d(maled7[((sotang % 1000) % 100) / 10]);
+         delay_ms(5);
+         output_low(PIN_E2);
+         output_high(PIN_E0);
+         output_high(PIN_E1);
+         output_high(PIN_A4);
+         output_d(maled7[((sotang % 1000) % 100) % 10]);
+         delay_ms(5);
+}
+void main()
+{
+   set_tris_a(0xEF); // dat chan A4 làm output de cap nguon cho led 7 doan
+   set_tris_e(0xF8); // dat chan E0, E1, E2 làm output de cap nguon cho led 7 doan
+   set_tris_d(0x00); // dat tat ca cac chan cong D la output de lam sang den led 7 doan
+   set_tris_b(0x01); // dat chan B0 la input de dieu khien nut nhan tang so
+   enable_interrupts(INT_EXT); // cài dat ngat EXT vì EXT la ngat liên quan dên chan B0
+   enable_interrupts(GLOBAL);  // cài dat ngat toàn cuc
+   while(TRUE)
+   {  
+      hienSoTangDan(g_x); 
+   }
+
+}

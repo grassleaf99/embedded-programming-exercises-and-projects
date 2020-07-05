@@ -1,0 +1,16 @@
+#include <main.h>
+
+void main()
+{
+   set_tris_d(0x00);
+   int8 arr[8] = {0xFE, 0xFD, 0xFB, 0xF7, 0xEF, 0xDF, 0xBF, 0x7F}
+   while(TRUE)
+   {
+      for(int i = 0; i < 8; i++)
+      {
+      output_d(arr[i]);
+      delay_ms(1000);
+      }//TODO: User Code
+   }
+
+}

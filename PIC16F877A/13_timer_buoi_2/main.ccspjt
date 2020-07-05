@@ -1,0 +1,62 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.025
+Compiler=PCM
+CCSVersion=5.025
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\ADMIN\Desktop\Hoc_PIC\13_timer_buoi_2\main]
+Type=4
+[mru-list]
+1=main.c
+
+[ProjectLog]
+Days=2
+D1=30-06-2019
+D1_L=12
+D1_L1=[74166]Project Opened.
+D1_L2=[74302]Started Editing.
+D1_L3=[74677]Stopped Editing.
+D1_L4=[75858]Started Editing.
+D1_L5=[77168]Stopped Editing.
+D1_L6=[77172]Started Editing.
+D1_L7=[77473]Stopped Editing.
+D1_L8=[77498]Started Editing.
+D1_L9=[81281]Stopped Editing.
+D1_L10=[81297]Started Editing.
+D1_L11=[81346]Stopped Editing.
+TotalEdit=89
+TotalDebug=0
+D1_E=77
+D1_D=0
+D1_L12=[81346]Project Closed.
+D2=01-07-2019
+D2_L=12
+D2_L1=[40820]Project Opened.
+D2_L2=[40847]Started Editing.
+D2_L3=[41576]Stopped Editing.
+D2_L4=[41584]Started Editing.
+D2_L5=[41886]Stopped Editing.
+D2_L6=[41959]Started Editing.
+D2_L7=[42295]Stopped Editing.
+D2_E=12
+D2_D=0
+D2_L8=[44355]Project Closed.
+D2_L9=[54815]Project Opened.
+D2_L10=[54839]Started Editing.
+D2_L11=[55044]Stopped Editing.
+D2_L12=[55045]Project Closed.
+
+[Opened Files]
+1=main.c
+2=..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+3=..\9999_bua\main.c
+4=
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

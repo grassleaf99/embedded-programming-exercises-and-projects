@@ -1,0 +1,56 @@
+#include <main.h>
+int8 maled7[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+int16 count_isr=0;
+int16 count=0;
+void hienSoTangDan(int16 sotang)
+{  
+         output_low(PIN_A4);
+         output_high(PIN_E0);
+         output_high(PIN_E1);
+         output_high(PIN_E2);
+         output_d(maled7[sotang / 1000]);
+         delay_ms(5);
+         output_low(PIN_E0);
+         output_high(PIN_A4);
+         output_high(PIN_E1);
+         output_high(PIN_E2);
+         output_d(maled7[(sotang % 1000) / 100]);
+         delay_ms(5);
+         output_low(PIN_E1);
+         output_high(PIN_E0);
+         output_high(PIN_A4);
+         output_high(PIN_E2);
+         output_d(maled7[((sotang % 1000) % 100) / 10]);
+         delay_ms(5);
+         output_low(PIN_E2);
+         output_high(PIN_E0);
+         output_high(PIN_E1);
+         output_high(PIN_A4);
+         output_d(maled7[((sotang % 1000) % 100) % 10]);
+         delay_ms(5);
+}
+void main()
+{
+   setup_timer_0(T0_INTERNAL | T0_DIV_32); // thiet lap timer 0 là hoac cua 2 cai sau
+                                           // clock nôi: T0_INTERNAL (dòng 152)
+                                           // 
+   set_timer0(61);
+   enable_interrupts(INT_TIMER0);
+   enable_interrupts(GLOBAL);
+   while(TRUE)
+   {
+      //TODO: User Code
+      hienSoTangDan(count);
+   }
+}
+#INT_TIMER0
+void timer0_isr(void)
+{
+   set_timer0(61);
+   count_isr++;
+   if(count_isr>=100)
+   {
+      count++;
+      count_isr=0;
+   }
+}

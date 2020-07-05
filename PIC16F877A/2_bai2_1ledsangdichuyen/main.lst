@@ -1,0 +1,196 @@
+CCS PCM C Compiler, Version 5.025, 9105               12-May-19 22:39
+
+               Filename:   C:\Users\ADMIN\Desktop\Hoc_PIC\bai2_1ledsangdichuyen\main.lst
+
+               ROM used:   126 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           13 (4%) worst case
+               Stack used: 1 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   03A
+0003:  NOP
+.................... #include <main.h> 
+.................... #include <16F877A.h> 
+.................... //////////// Standard Header file for the PIC16F877A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F877A 
+0004:  MOVF   25,W
+0005:  ANDLW  07
+0006:  MOVWF  77
+0007:  RRF    25,W
+0008:  MOVWF  78
+0009:  RRF    78,F
+000A:  RRF    78,F
+000B:  MOVLW  1F
+000C:  ANDWF  78,F
+000D:  MOVF   78,W
+000E:  ADDWF  27,W
+000F:  MOVWF  04
+0010:  BCF    03.7
+0011:  BTFSC  28.0
+0012:  BSF    03.7
+0013:  CLRF   78
+0014:  INCF   78,F
+0015:  INCF   77,F
+0016:  GOTO   018
+0017:  RLF    78,F
+0018:  DECFSZ 77,F
+0019:  GOTO   017
+001A:  MOVF   26,F
+001B:  BTFSC  03.2
+001C:  GOTO   020
+001D:  MOVF   78,W
+001E:  IORWF  00,F
+001F:  GOTO   023
+0020:  COMF   78,F
+0021:  MOVF   78,W
+0022:  ANDWF  00,F
+0023:  RETURN
+....................  
+.................... #list 
+....................  
+.................... #device ADC=16 
+....................  
+.................... #FUSES NOWDT                 	//No Watch Dog Timer 
+.................... #FUSES NOBROWNOUT            	//No brownout reset 
+.................... #FUSES NOLVP                 	//No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+....................  
+.................... #use delay(crystal=20000000) 
+0024:  MOVLW  25
+0025:  MOVWF  04
+0026:  BCF    03.7
+0027:  MOVF   00,W
+0028:  BTFSC  03.2
+0029:  GOTO   037
+002A:  MOVLW  06
+002B:  MOVWF  78
+002C:  CLRF   77
+002D:  DECFSZ 77,F
+002E:  GOTO   02D
+002F:  DECFSZ 78,F
+0030:  GOTO   02C
+0031:  MOVLW  7B
+0032:  MOVWF  77
+0033:  DECFSZ 77,F
+0034:  GOTO   033
+0035:  DECFSZ 00,F
+0036:  GOTO   02A
+0037:  BCF    0A.3
+0038:  BCF    0A.4
+0039:  GOTO   078 (RETURN)
+....................  
+....................  
+....................  
+.................... void main() 
+003A:  MOVF   03,W
+003B:  ANDLW  1F
+003C:  MOVWF  03
+003D:  BSF    03.5
+003E:  BSF    1F.0
+003F:  BSF    1F.1
+0040:  BSF    1F.2
+0041:  BCF    1F.3
+0042:  MOVLW  07
+0043:  MOVWF  1C
+0044:  BCF    03.7
+.................... { 
+.................... //!   set_tris_d(0x00); 
+.................... //!   int8 arr[8] = {0xFE, 0xFD, 0xFB, 0xF7, 0xEF, 0xDF, 0xBF, 0x7F}; 
+.................... //!   while(TRUE)   // cach 1: su dung mang (nhuoc diem ton thoi gian) 
+.................... //!  { 
+.................... //!     for(int i = 0; i < 8; i++) 
+.................... //!     { 
+.................... //!         output_d(arr[i]); 
+.................... //!         delay_ms(1000); 
+.................... //!     } 
+.................... //!  } 
+.................... // cach 2: dich bit 
+.................... // cach nay con ap dung viec su dung chan ki hieu so nhung a Tuyen bao kho cho nguoi khac hieu code 
+....................    set_tris_d(0x00); 
+0045:  MOVLW  00
+0046:  MOVWF  08
+....................    int8 x; 
+....................    while(TRUE) 
+....................    { 
+....................       for(int i = 0; i < 8; i++) 
+0047:  BCF    03.5
+0048:  CLRF   22
+0049:  MOVF   22,W
+004A:  SUBLW  07
+004B:  BTFSS  03.0
+004C:  GOTO   07C
+....................       { 
+....................          x = 0xFE; 
+004D:  MOVLW  FE
+004E:  MOVWF  21
+....................          x = x << i; 
+004F:  MOVF   22,W
+0050:  MOVWF  78
+0051:  BTFSC  03.2
+0052:  GOTO   057
+0053:  BCF    03.0
+0054:  RLF    21,F
+0055:  DECFSZ 78,F
+0056:  GOTO   053
+....................          output_d(x); 
+0057:  BSF    03.5
+0058:  CLRF   08
+0059:  BCF    03.5
+005A:  MOVF   21,W
+005B:  MOVWF  08
+....................          for(int j = 0; j < i; j++) 
+005C:  CLRF   23
+005D:  MOVF   22,W
+005E:  SUBWF  23,W
+005F:  BTFSC  03.0
+0060:  GOTO   073
+....................          output_high(64 + j);      // 64 la chan D0 
+0061:  MOVLW  40
+0062:  ADDWF  23,W
+0063:  MOVWF  24
+0064:  MOVWF  25
+0065:  MOVLW  01
+0066:  MOVWF  26
+0067:  CLRF   28
+0068:  CLRF   27
+0069:  CALL   004
+006A:  MOVF   24,W
+006B:  MOVWF  25
+006C:  CLRF   26
+006D:  CLRF   28
+006E:  MOVLW  80
+006F:  MOVWF  27
+0070:  CALL   004
+0071:  INCF   23,F
+0072:  GOTO   05D
+....................          delay_ms(500); 
+0073:  MOVLW  02
+0074:  MOVWF  24
+0075:  MOVLW  FA
+0076:  MOVWF  25
+0077:  GOTO   024
+0078:  DECFSZ 24,F
+0079:  GOTO   075
+007A:  INCF   22,F
+007B:  GOTO   049
+....................       } 
+007C:  GOTO   048
+....................    } 
+.................... } 
+007D:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F32   HS NOWDT PUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

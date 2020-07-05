@@ -1,0 +1,12 @@
+#include <main.h>
+
+void main()
+{
+   set_tris_d(0x00);
+   while(TRUE)
+   {
+      for(int i = 0; i < 8; i++)
+      output_d(0x01 << i);//TODO: User Code
+   }
+
+}

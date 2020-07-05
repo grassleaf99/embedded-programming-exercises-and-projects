@@ -1,0 +1,21 @@
+#include <main.h>
+
+void main()
+{
+   set_tris_e(0xFB);// 1111 1011  cong E: chan E2 lam output
+   set_tris_d(0x00);// tat ca chan cong D lam output hien thi do sang den led voi
+                    // a la D0, b la D1 
+   while(TRUE)
+   {
+      output_low(PIN_E2); // cho chan E2 muc 0 -> cap nguon cho led 7 doan chung anot
+      output_d(0xF9);     // xuat so 1 ra led 7 doan
+      int maled7[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+      for(int i = 0; i < 10; i++)
+      {
+         output_d(maled7[i]);
+         delay_ms(1000);
+      }
+      //TODO: User Code
+   }
+
+}

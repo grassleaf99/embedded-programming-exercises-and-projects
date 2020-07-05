@@ -1,0 +1,82 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.025
+Compiler=PCM
+CCSVersion=5.025
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\ADMIN\Desktop\Hoc_PIC\hien_so_nho_nut_nhan\main]
+Type=4
+[mru-list]
+1=main.c
+
+[ProjectLog]
+Days=6
+D1=23-05-2019
+D1_L=4
+D1_L1=[76994]Project Opened.
+D1_L2=[77158]Started Editing.
+D1_L3=[80596]Stopped Editing.
+TotalEdit=91
+TotalDebug=0
+D1_E=53
+D1_D=0
+D1_L4=[81928]Project Closed.
+D2=24-05-2019
+D2_L=10
+D2_L1=[39529]Project Opened.
+D2_L2=[39555]Started Editing.
+D2_L3=[39907]Stopped Editing.
+D2_L4=[39940]Started Editing.
+D2_L5=[41172]Stopped Editing.
+D2_E=22
+D2_D=0
+D2_L6=[41172]Project Closed.
+D2_L7=[41563]Project Opened.
+D2_L8=[41656]Project Closed.
+D2_L9=[55499]Project Opened.
+D2_L10=[55519]Project Closed.
+D3=26-05-2019
+D3_L=6
+D3_L1=[71561]Project Opened.
+D3_L2=[73078]Started Editing.
+D3_L3=[73709]Stopped Editing.
+D3_L4=[75303]Started Editing.
+D3_L5=[75823]Stopped Editing.
+D3_E=15
+D3_D=0
+D3_L6=[75823]Project Closed.
+D4=27-05-2019
+D4_L=4
+D4_L1=[63239]Project Opened.
+D4_L2=[63247]Started Editing.
+D4_L3=[63276]Stopped Editing.
+D4_E=1
+D4_D=0
+D4_L4=[63276]Project Closed.
+D5=03-06-2019
+D5_L=6
+D5_L1=[60065]Project Opened.
+D5_L2=[60072]Project Closed.
+D5_L3=[60709]Project Opened.
+D5_L4=[60718]Project Closed.
+D5_L5=[60725]Project Opened.
+D5_L6=[60734]Project Closed.
+D6=08-09-2019
+D6_L=2
+D6_L1=[78289]Project Opened.
+D6_L2=[78312]Project Closed.
+
+[Opened Files]
+1=main.c
+2=
+3=
+4=
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

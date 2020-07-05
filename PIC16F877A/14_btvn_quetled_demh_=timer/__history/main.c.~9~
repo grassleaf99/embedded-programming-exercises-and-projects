@@ -1,0 +1,149 @@
+//!// timer duoc su dung trong dem gio
+//!#include <main.h>
+//!int8 maled7[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+//!int phut = 0, giay = 0;
+//!long count = 0;
+//!void hienSoTangDan(int phut, int giay)
+//!{
+//!         output_low(PIN_A4);
+//!         output_high(PIN_E0);
+//!         output_high(PIN_E1);
+//!         output_high(PIN_E2);
+//!         output_d(maled7[phut / 10]);
+//!         delay_ms(5);
+//!         output_low(PIN_E0);
+//!         output_high(PIN_A4);
+//!         output_high(PIN_E1);
+//!         output_high(PIN_E2);
+//!         output_d(maled7[phut % 10]);
+//!         delay_ms(5);
+//!         output_low(PIN_E1);
+//!         output_high(PIN_E0);
+//!         output_high(PIN_A4);
+//!         output_high(PIN_E2);
+//!         output_d(maled7[giay / 10]);
+//!         delay_ms(5);
+//!         output_low(PIN_E2);
+//!         output_high(PIN_E0);
+//!         output_high(PIN_E1);
+//!         output_high(PIN_A4);
+//!         output_d(maled7[giay % 10]);
+//!         delay_ms(5);
+//!}
+//!void main()
+//!{
+//!   set_tris_d(0x00);
+//!   set_tris_e(0x00);
+//!   set_tris_a(0x10);
+//!   setup_timer_1(T1_INTERNAL | T1_DIV_BY_8);    // chon clock noi = 20M/4 = 5MHz va che do chia cho 8 -> moi lan tang 1 bit se co tan so 5000kHz/8 = 8/5000 (ms)
+//!   set_timer1(64911);                           // cai dat dem tu 64911 -> 65536 (2 mu 16) --> thoi gian xay ra tran timer1 (su kien ngat) la: (65536 - 64911) * (8/5000) = 1 ms  
+//!   enable_interrupts(INT_TIMER1);               // kich hoat ngat timer 1
+//!   enable_interrupts(GLOBAL);                   // kich hoat ngat toan cuc
+//!   while(TRUE)
+//!   {
+//!      hienSoTangDan(phut, giay);
+//!      //TODO: User Code
+//!   }
+//!
+//!}
+//!
+//!#INT_TIMER1
+//!void chuyenled()
+//!{
+//!     set_timer1(64911);                         // cai dat dem tu 64911 de xay ra tran sau 1 ms
+//!     count++;
+//!     if(count == 1000)
+//!     {
+//!         count = 0;
+//!         giay++;
+//!     }
+//!     if(giay == 60)
+//!     {
+//!         giay = 0;
+//!         phut++;
+//!     }
+//!     if(phut == 60)
+//!     phut = 0;
+//!}
+
+
+
+
+#include <main.h>
+int8 maled7[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+int phut = 0, giay = 0;
+long count = 0, dung = 0;
+
+#INT_TIMER0
+void demdung()
+{
+   set_timer0(206); 
+   dung++;
+   if(dung == 9)
+   dung = 1;
+   switch(dung)
+   {
+         case 2:  output_low(PIN_A4);
+                  output_high(PIN_E0);
+                  output_high(PIN_E1);
+                  output_high(PIN_E2);
+                  output_d(maled7[phut / 10]);
+                  break;
+         case 4:  output_low(PIN_E0);
+                  output_high(PIN_A4);
+                  output_high(PIN_E1);
+                  output_high(PIN_E2);
+                  output_d(maled7[phut % 10]);
+                  break;
+         case 6:  output_low(PIN_E1);
+                  output_high(PIN_E0);
+                  output_high(PIN_A4);
+                  output_high(PIN_E2);
+                  output_d(maled7[giay / 10]);
+                  break;
+         case 8:  output_low(PIN_E2);
+                  output_high(PIN_E0);
+                  output_high(PIN_E1);
+                  output_high(PIN_A4);
+                  output_d(maled7[giay % 10]);
+                  break;
+   }
+}
+
+void main()
+{
+   set_tris_d(0x00);
+   set_tris_e(0x00);
+   set_tris_a(0x10);
+   setup_timer_1(T1_INTERNAL | T1_DIV_BY_8);    // chon clock noi = 20M/4 = 5MHz va che do chia cho 8 -> moi lan tang 1 bit se co tan so 5000kHz/8 = 8/5000 (ms)
+   set_timer1(64911);                           // cai dat dem tu 64911 -> 65536 (2 mu 16) --> thoi gian xay ra tran timer1 (su kien ngat) la: (65536 - 64911) * (8/5000) = 1 ms  
+   enable_interrupts(INT_TIMER1);               // kich hoat ngat timer 1
+   setup_timer_0(T0_INTERNAL | T0_DIV_256);
+   set_timer0(206);                             // cai dat dem tu 206 de xay ra tran sau 2,56 ms
+   enable_interrupts(INT_TIMER0);               // enable ngat tràn timer 0
+   enable_interrupts(GLOBAL);                   // kich hoat ngat toan cuc
+   while(TRUE)
+   {
+      //TODO: User Code
+   }
+
+}
+
+#INT_TIMER1
+void chuyenled()
+{
+     set_timer1(64911);                         // cai dat dem tu 64911 de xay ra tran sau 1 ms
+     count++;
+     if(count == 1000)
+     {
+         count = 0;
+         giay++;
+     }
+     if(giay == 60)
+     {
+         giay = 0;
+         phut++;
+     }
+     if(phut == 60)
+     phut = 0;
+}

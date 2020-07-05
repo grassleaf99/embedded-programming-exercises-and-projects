@@ -1,0 +1,13 @@
+#include <main.h>
+
+void main()
+{
+   set_tris_d(0x00); // cài dat port D làm output
+   while(TRUE)
+   {
+      output_d(0xFE); // den led 1 (chi so 0) sang
+      output_d(0x00); // tat ca den deu sang
+      output_d(0xFF); // tat ca den deu tat
+   }
+
+}

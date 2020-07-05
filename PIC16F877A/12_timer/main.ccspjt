@@ -1,0 +1,75 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.025
+Compiler=PCM
+CCSVersion=5.025
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\ADMIN\Desktop\Hoc_PIC\timer\main]
+Type=4
+[mru-list]
+1=main.c
+
+[ProjectLog]
+Days=5
+D1=02-06-2019
+D1_L=10
+D1_L1=[74329]Project Opened.
+D1_L2=[75527]Started Editing.
+D1_L3=[75827]Stopped Editing.
+D1_L4=[76221]Started Editing.
+D1_L5=[76646]Stopped Editing.
+D1_L6=[76694]Started Editing.
+D1_L7=[77676]Stopped Editing.
+D1_L8=[80188]Started Editing.
+D1_L9=[80533]Stopped Editing.
+TotalEdit=26
+TotalDebug=0
+D1_E=15
+D1_D=0
+D1_L10=[81284]Project Closed.
+D2=03-06-2019
+D2_L=4
+D2_L1=[60835]Project Opened.
+D2_L2=[60872]Project Closed.
+D2_L3=[79384]Project Opened.
+D2_L4=[79406]Project Closed.
+D3=04-06-2019
+D3_L=4
+D3_L1=[80931]Project Opened.
+D3_L2=[80942]Started Editing.
+D3_L3=[81286]Stopped Editing.
+D3_E=6
+D3_D=0
+D3_L4=[81286]Project Closed.
+D4=05-06-2019
+D4_L=4
+D4_L1=[66710]Project Opened.
+D4_L2=[66721]Started Editing.
+D4_L3=[66916]Stopped Editing.
+D4_E=4
+D4_D=0
+D4_L4=[66916]Project Closed.
+D5=30-06-2019
+D5_L=6
+D5_L1=[72034]Project Opened.
+D5_L2=[72167]Started Editing.
+D5_L3=[72193]Stopped Editing.
+D5_E=1
+D5_D=0
+D5_L4=[72193]Project Closed.
+D5_L5=[74084]Project Opened.
+D5_L6=[74166]Project Closed.
+
+[Opened Files]
+1=main.c
+2=
+3=
+[main.c]
+Type=4
+[Units]
+Count=1
+1=main (main)

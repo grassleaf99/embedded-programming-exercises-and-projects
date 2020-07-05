@@ -1,0 +1,14 @@
+#include <main.h>
+
+void main()
+{
+   set_tris_e(0xFB);// 1111 1011  cong E: chan E2 lam output
+   set_tris_d(0x00);// tat ca chan cong D lam output
+   while(TRUE)
+   {
+      output_low(PIN_E2);
+      output_d(0x00);
+      //TODO: User Code
+   }
+
+}

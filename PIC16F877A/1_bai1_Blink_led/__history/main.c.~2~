@@ -1,0 +1,11 @@
+#include <main.h>
+
+void main()
+{
+   set_tris_d(0x00) // cài dat port D làm output
+   while(TRUE)
+   {
+      output_d(0xFE)//TODO: User Code
+   }
+
+}

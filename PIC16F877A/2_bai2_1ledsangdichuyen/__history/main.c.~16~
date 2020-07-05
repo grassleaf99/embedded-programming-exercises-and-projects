@@ -1,0 +1,33 @@
+#include <main.h>
+
+void main()
+{
+   set_tris_d(0x00);
+   int8 arr[8] = {0xFE, 0xFD, 0xFB, 0xF7, 0xEF, 0xDF, 0xBF, 0x7F};
+ //  while(TRUE)   // cach 1: su dung mang (nhuoc diem ton thoi gian)
+ //  {
+ //     for(int i = 0; i < 8; i++)
+ //     {
+ //     output_d(arr[i]);
+ //     delay_ms(1000);
+ //    }
+ //  }
+   int8 x;
+   int16 y;
+   while(TRUE)
+   {
+      x  = 0x01;
+      for(int i = 0; i < 8; i++)
+      {
+         y = 64;
+         x = x << i;
+         for(int j = 0; j < 8; j++)
+         output_toggle(++y);
+         output_d(x);
+         delay_ms(1000);
+          y = 64;
+         for(int u = 0; u < 8; u++)
+         output_toggle(++y);
+      }
+   }
+}

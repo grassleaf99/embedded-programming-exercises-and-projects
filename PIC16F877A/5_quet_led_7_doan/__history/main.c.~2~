@@ -1,0 +1,14 @@
+#include <main.h>
+
+void main()
+{
+   set_tris_a(0xEF);
+   set_tris_e(0xF8);
+   set_tris_d(0x00);
+   while(TRUE)
+   {
+      int8 
+      //TODO: User Code
+   }
+
+}

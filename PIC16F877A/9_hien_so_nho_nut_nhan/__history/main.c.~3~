@@ -1,0 +1,63 @@
+#include <main.h>
+signed int8 g_x = 0;
+void hienSoTangDan(long sotang)
+void main()
+{
+   set_tris_a(0xEF);
+   set_tris_e(0xF8);
+   set_tris_d(0x00); // dat tat ca cac chan cong D la output de lam sang den led 7 doan
+   set_tris_b(0x03); // dat chan B0, B1 la input de dieu khien 2 nut nhan
+   int8 maled7[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+   output_low(PIN_E2); // de chan E2 muc 0 de cap nguon cho led 7 doan
+   while(TRUE)
+   {
+      if(input(PIN_B0) == 0)  // neu nhan nut dc noi vao chan B0 thi tang g_x
+      {
+         g_x++;
+         if(g_x > 9)
+         g_x = 0;
+      }
+      while(input(PIN_B0) == 0){}
+      if(input(PIN_B1) == 0)  // neu nhan nut dc noi vao chan B1 thi giam g_x
+      {
+         g_x--;
+         if(g_x < 0)
+         g_x = 9;
+      }
+      while(input(PIN_B1) == 0){}
+      output_d(maled7[g_x]);
+      //TODO: User Code
+   }
+
+}
+void hienSoTangDan(long sotang)
+{  
+   for(int i = 1; i <= 50; i++)
+      {
+         output_low(PIN_A4);
+         output_high(PIN_E0);
+         output_high(PIN_E1);
+         output_high(PIN_E2);
+         output_d(maled7[sotang / 1000]);
+         delay_ms(5);
+         output_low(PIN_E0);
+         output_high(PIN_A4);
+         output_high(PIN_E1);
+         output_high(PIN_E2);
+         output_d(maled7[(sotang % 1000) / 100]);
+         delay_ms(5);
+         output_low(PIN_E1);
+         output_high(PIN_E0);
+         output_high(PIN_A4);
+         output_high(PIN_E2);
+         output_d(maled7[((sotang % 1000) % 100) / 10]);
+         delay_ms(5);
+         output_low(PIN_E2);
+         output_high(PIN_E0);
+         output_high(PIN_E1);
+         output_high(PIN_A4);
+         output_d(maled7[((sotang % 1000) % 100) % 10]);
+         delay_ms(5);
+      }
+}
+
