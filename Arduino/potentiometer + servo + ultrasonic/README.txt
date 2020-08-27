@@ -1,0 +1,6 @@
+- Chân giữa của chiết áp nối với pin A0
+- Chân signal của servo (dây màu vàng cam) nối với pin 9
+- Chân ECHO của cảm biến siêu âm gắn với pin 8
+- Chân TRIG của cảm biến siêu âm gắn với pin 7
+- Đèn LED được gắn với pin 6 (1 pin có khả năng PWM) để điều chỉnh độ sáng đèn led dựa trên khoảng cách tới vật cản (vật cản càng gần, đèn càng sáng; khi không đo được gì, đèn không sáng)
+- Xoay nút vặn của chiết áp để điều chỉnh vị trí quay của servo -> điều chỉnh vị trí của cảm biến siêu âm
