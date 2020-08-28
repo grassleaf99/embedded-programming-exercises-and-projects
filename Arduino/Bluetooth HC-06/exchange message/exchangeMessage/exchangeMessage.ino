@@ -12,12 +12,12 @@ void setup() {
 }
 
 void loop() { // run over and over
-  if (bluetooth.available()) 
+  if (bluetooth.available()) // nếu HC-06 gửi dữ liệu
   {
-    Serial.write(bluetooth.read());
+    Serial.write(bluetooth.read()); // hiển thị dữ liệu từ HC-06 lên Serial theo từng byte
   }
-  if (Serial.available()) 
+  if (Serial.available())   // nếu ta đã gửi dữ liệu gì đó lên Serial
   {
-    bluetooth.write(Serial.read());
+    bluetooth.write(Serial.read()); // dữ liệu đó được gửi cho HC-06 theo từng byte
   }
 }
